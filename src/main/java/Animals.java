@@ -1,10 +1,14 @@
 import org.sql2o.Connection;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Animals {
-    private String name;
-    private int id;
+    public String name;
+    public int id;
+    public String type;
+    public static final String DATABASE_TYPE = "Normal";
+    public String ranger;
 
     public Animals(String name){
         this.name = name;
@@ -30,6 +34,13 @@ public class Animals {
                     .addParameter("id", id)
                     .executeAndFetchFirst(Animals.class);
             return animal;
+        }
+    }
+
+    public static List<Animals> allAnimals(){
+        String sql = "SELECT * FROM animals ";
+        try(Connection con = DB.sql2o.open()){
+            return con.createQuery(sql).executeAndFetch(Animals.class);
         }
     }
 
