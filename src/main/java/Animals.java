@@ -1,14 +1,36 @@
+import org.sql2o.Connection;
+
 import java.util.Objects;
 
 public class Animals {
     private String name;
     private int id;
 
-    public Animals(String name, int id){
+    public Animals(String name){
         this.name = name;
-        this.id = id;
     }
 
+
+
+    public void save(){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "INSERT INTO animals (name) VALUES (:name)";
+            this.id = (int)con.createQuery(sql)
+                    .addParameter("name", this.name)
+                    .executeUpdate()
+            .getKey();
+        }
+    }
+
+    public static Animals find(int id){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM animals WHERE id=:id";
+            Animals animal = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Animals.class);
+            return animal;
+        }
+    }
 
     public String getName() {
         return name;
