@@ -18,5 +18,27 @@ public class AnimalsTest {
     public void animals_instanciatesCorrectly_true() {
         Animals newAnimal = new Animals("Lion", 01);
         assertEquals(true, newAnimal instanceof Animals);
+
     }
+
+    @Test
+    public void getName_works_true(){
+        Animals newAnimal = new Animals("Lion", 01);
+        assertEquals("Lion", newAnimal.getName());
+    }
+
+    @Test
+    public void getI_works_true(){
+        Animals newAnimal = new Animals("Lion", 01);
+        assertEquals(1, newAnimal.getId());
+    }
+
+    @Test
+    public void equalsTestsIfClassesAreSame_true() {
+        Animals animal1 = new Animals("Lion" ,1);
+        Animals animal2 = new Animals("Lion" ,1);
+        assertTrue(animal1.equals(animal2));
+    }
+
+
 }
