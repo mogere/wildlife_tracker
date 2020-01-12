@@ -12,7 +12,12 @@ public class App {
         return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+    post("/postSighting",(request, response) ->{
+        Map<String, Object> model = new HashMap<>();
+        String animalName = request.queryParams("animal");
+        Animals animal = new Animals(animalName);
+        return new ModelAndView(model, "successSighting.hbs");
+    },new HandlebarsTemplateEngine());
 
     }
 

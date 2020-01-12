@@ -8,6 +8,7 @@ public class Animals {
 
     public Animals(String name){
         this.name = name;
+        save();
     }
 
 
