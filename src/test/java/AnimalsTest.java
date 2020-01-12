@@ -30,11 +30,11 @@ public class AnimalsTest {
         assertEquals("Lion", newAnimal.getName());
     }
 
-//    @Test
-//    public void getId_works_true(){
-//        Animals newAnimal = new Animals("Lion");
-//        assertEquals(1, newAnimal.getId());
-//    }
+    @Test
+    public void getId_works_true(){
+        Animals newAnimal = new Animals("Lion");
+        assertEquals(1, newAnimal.getId());
+    }
 
     @Test
     public void equalsTestsIfClassesAreSame_true() {
