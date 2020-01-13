@@ -27,7 +27,8 @@ Download Java Development kit 11. Previous or later versions may
 have some minimal compatibility issue. Gradle is the tool used to 
 build and run the code. Preferred IDE is IntelliJ IDEA.
 
-#####In PSQL:
+In PSQL:
+
 CREATE DATABASE wildlife_tracker;
 CREATE TABLE animals (id serial PRIMARY KEY, name varchar);
 CREATE TABLE tasks (id serial PRIMARY KEY, location varchar, animal_id integer, type varchar, ranger varchar, time date );

@@ -3,51 +3,71 @@
     <h3>We track sightings of animals for statistics and protection</h3>
 
     <div class = "row">
-        <div class = "col-md-5">
-            <div class = "card border-info mb-3" style="max-width: 30rem;">
-                <div class = "card-title">Report sighting</div>
-                <div class ="card-body">
-                    <form action = "/postSighting" method = "post">
-                        <label>Animal</label>
-                        <input type = "text" placeholder="Enter the Animal sighted" name = "animal" class = "form-control">
-
-                        <label>Endangered?</label>
-                        <select class="form-control input-sm mb15" name="endangered">
-                            <option value="Endangered">Yes</option>
-                            <option value="Normal">No</option>
-                        </select>
-
-                        <label>Location</label>
-                        <select class="form-control input-sm mb15" name="location">
-                            <option value="A">Zone A</option>
-                            <option value="B">Zone B</option>
-                            <option value="C">Zone C</option>
-                        </select>
-
-                        <label>Ranger</label>
-                        <input type = "text" placeholder="Ranger who sighted" name = "ranger" class = "form-control">
-
-                        <div class = "card footer">
-                            <p></p>
-                            <button type = "submit" class = "btn btn-success">Enter</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-        <div class = "col-md-7">
+        <div class = "col-md-3">
             <div class = "card border-info mb-3" style="max-width: 18rem;">
-                <div class = "card-title">Sightings Reported</div>
+                <div class = "card-title">All recorded animals</div>
                 <div class = "card-body">
-                    <ol>
-                        <li></li>
+                    <ol>{{#each allAnimals}}
+                        <li><b>{{name}}</b></li>
+                    {{/each}}
                     </ol>
                 </div>
             </div>
+        </div>
 
+
+    <div class = "col-md-3">
+        <div class = "card border-info mb-3" style="max-width: 30rem;">
+            <div class = "card-title">Report sighting</div>
+            <div class ="card-body">
+                <form action = "/postSighting" method = "post">
+                    <label>Animal</label>
+                    <select class="form-control input-sm mb15" name="animal">
+                        {{#each allAnimals}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+
+                    <label>Endangered?</label>
+                    <select class="form-control input-sm mb15" name="endangered">
+                        <option value="endangered">Yes</option>
+                        <option value="normal">No</option>
+                    </select>
+                        <label>Location</label>
+                        <select class="form-control input-sm mb15" name="location">
+                            <option value="Zone A">Zone A</option>
+                            <option value="Zone B">Zone B</option>
+                            <option value="Zone C">Zone C</option>
+                        </select>
+                        <label>Health</label>
+                        <select class="form-control input-sm mb15" name="location">
+                            <option value="healthy">Healthy</option>
+                            <option value="ill">Ill</option>
+                            <option value="okay">Okay</option>
+                        </select>
+                    <label>Ranger</label>
+                    <input type = "text" placeholder="Ranger who sighted" name = "ranger" class = "form-control">
+
+                    <div class = "card footer">
+                        <p></p>
+                        <button type = "submit" class = "btn btn-success">Enter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+        <div class = "col-md-6">
+            <div class = "card-title">Sightings recorded</div>
+            <div class = "card-body">
+                <ol>{{#each allSightings}}
+                    <li><b>{{location}}</b></li>
+                {{/each}}
+                </ol>
+            </div>
         </div>
     </div>
+
 
 {{/partial}}
 

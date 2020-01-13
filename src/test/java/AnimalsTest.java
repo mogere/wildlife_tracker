@@ -30,6 +30,16 @@ public class AnimalsTest {
         assertEquals("Lion", newAnimal.getName());
     }
 
+    @Test
+    public void all_returnsAllInstancesOfAnimals_true() {
+        Animals animal1 = new Animals("Wildebeast");
+        animal1.save();
+        Animals animal2 = new Animals("Erland");
+        animal2.save();
+        assertEquals(true, Animals.allAnimals().get(0).equals(animal1));
+        assertEquals(true, Animals.allAnimals().get(1).equals(animal2));
+    }
+
 //    @Test
 //    public void getId_works_true(){
 //        Animals newAnimal = new Animals("Lion");

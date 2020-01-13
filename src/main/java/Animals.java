@@ -7,12 +7,12 @@ public class Animals {
     public String name;
     public int id;
     public String type;
-    public static final String DATABASE_TYPE = "Normal";
+    public static final String DATABASE_TYPE = "not-endangered";
     public String ranger;
 
     public Animals(String name){
         this.name = name;
-        //save();
+        save();
     }
 
 
@@ -20,10 +20,10 @@ public class Animals {
     public void save(){
         try(Connection con = DB.sql2o.open()){
             String sql = "INSERT INTO animals (name) VALUES (:name)";
-            this.id = (int)con.createQuery(sql)
+            con.createQuery(sql)
                     .addParameter("name", this.name)
-                    .executeUpdate()
-                    .getKey();
+                    .executeUpdate();
+                    //.getKey();
         }
     }
 
