@@ -12,7 +12,7 @@ public class Animals {
 
     public Animals(String name){
         this.name = name;
-        save();
+        //save();
     }
 
 
@@ -23,7 +23,7 @@ public class Animals {
             this.id = (int)con.createQuery(sql)
                     .addParameter("name", this.name)
                     .executeUpdate()
-            .getKey();
+                    .getKey();
         }
     }
 
