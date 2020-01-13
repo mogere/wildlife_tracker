@@ -23,8 +23,9 @@
                 <form action = "/postSighting" method = "post">
                     <label>Animal</label>
                     <select class="form-control input-sm mb15" name="animal">
+                        <option value="">Choose the spotted animal</option>
                         {{#each allAnimals}}
-                            <option value="">Choose the spotted animal</option>
+
                             <option value="{{id}}">{{name}}</option>
                         {{/each}}
                     </select>

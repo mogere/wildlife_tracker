@@ -7,6 +7,7 @@ public class NotEndangered extends Animals {
     public static final String DATABASE_TYPE = "Not-Endangered";
 
     public NotEndangered(String name) {
+        super(name);
         this.name = name;
         type =  DATABASE_TYPE;
 
