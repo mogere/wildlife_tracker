@@ -1,12 +1,12 @@
 
 import org.sql2o.Connection;
 
-public class Endangered extends Animals {
+public class NotEndangered extends Animals {
 
 
-    public static final String DATABASE_TYPE = "Endangered";
+    public static final String DATABASE_TYPE = "Not-Endangered";
 
-    public Endangered(String name) {
+    public NotEndangered(String name) {
         this.name = name;
         type =  DATABASE_TYPE;
 

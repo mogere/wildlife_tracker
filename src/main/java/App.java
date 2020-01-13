@@ -11,9 +11,9 @@ public class App {
     get("/" ,(request, response) ->{
         Map<String, Object> model = new HashMap<>();
         List<Animals> allAnimals = Animals.allAnimals();
-       // List<Sighting> allSightings = Sighting.allSightings();
+        //List<Sighting> allSightings = Sighting.allSightings();
         model.put("allAnimals", allAnimals);
-        //model.put("allSightings", allSightings);
+       // model.put("allSightings", allSightings);
         return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 

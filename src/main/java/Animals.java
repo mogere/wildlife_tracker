@@ -3,18 +3,12 @@ import org.sql2o.Connection;
 import java.util.List;
 import java.util.Objects;
 
-public class Animals {
+public abstract class Animals {
     public String name;
     public int id;
     public String type;
     public static final String DATABASE_TYPE = "not-endangered";
     public String ranger;
-
-    public Animals(String name){
-        this.name = name;
-        save();
-    }
-
 
 
     public void save(){
@@ -59,7 +53,13 @@ public class Animals {
     public void setId(int id) {
         this.id = id;
     }
+    public String getRanger() {
+        return ranger;
+    }
 
+    public void setRanger(String ranger) {
+        this.ranger = ranger;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -24,33 +24,37 @@
                     <label>Animal</label>
                     <select class="form-control input-sm mb15" name="animal">
                         {{#each allAnimals}}
+                            <option value="">Choose the spotted animal</option>
                             <option value="{{id}}">{{name}}</option>
                         {{/each}}
                     </select>
 
                     <label>Endangered?</label>
                     <select class="form-control input-sm mb15" name="endangered">
+                        <option value="">Choose if Endangered or not</option>
                         <option value="endangered">Yes</option>
                         <option value="normal">No</option>
                     </select>
                         <label>Location</label>
                         <select class="form-control input-sm mb15" name="location">
+                            <option value="">Choose the zone Spotted</option>
                             <option value="Zone A">Zone A</option>
                             <option value="Zone B">Zone B</option>
                             <option value="Zone C">Zone C</option>
                         </select>
-                        <label>Health</label>
-                        <select class="form-control input-sm mb15" name="location">
-                            <option value="healthy">Healthy</option>
-                            <option value="ill">Ill</option>
-                            <option value="okay">Okay</option>
-                        </select>
+<!--                        <label>Health</label>-->
+<!--                        <select class="form-control input-sm mb15" name="health">-->
+<!--                            <option value="">Choose the health status of animal</option>-->
+<!--                            <option value="healthy">Healthy</option>-->
+<!--                            <option value="ill">Ill</option>-->
+<!--                            <option value="okay">Okay</option>-->
+<!--                        </select>-->
                     <label>Ranger</label>
                     <input type = "text" placeholder="Ranger who sighted" name = "ranger" class = "form-control">
 
                     <div class = "card footer">
                         <p></p>
-                        <button type = "submit" class = "btn btn-success">Enter</button>
+                        <button type = "submit" class = "btn btn-success">Enter Details</button>
                     </div>
                 </form>
             </div>
