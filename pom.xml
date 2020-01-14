@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mogere.hero-squad</groupId>
-    <artifactId>hero-squad</artifactId>
+    <groupId>com.mogere.wildlife_tracker</groupId>
+    <artifactId>wildlife_tracker</artifactId>
     <version>1.0</version>
 
     <dependencies>
@@ -35,6 +35,11 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.2</version>
         </dependency>
     </dependencies>
     <build>
@@ -77,9 +82,9 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>herosquad-app</appName>
+                    <appName>wildlife_tracker</appName>
                     <processTypes>
-                        <web>java -jar target/hero-squad-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/wildlife_tracker-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>

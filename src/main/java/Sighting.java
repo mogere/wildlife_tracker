@@ -20,22 +20,28 @@ public class Sighting {
         this.ranger = ranger;
         LocalDateTime time = LocalDateTime.now();
         this.timestamp = Timestamp.valueOf(time);
+        System.out.println(timestamp);
         save();
 
     }
 
-    private void save() {
-        try(Connection con = DB.sql2o.open()){
-            String sql = "INSERT INTO sightings (location, animal_id, type, ranger, time) VALUES (:location, :animal_id, :type, :ranger, :timestamp)";
-            con.createQuery(sql)
-                    .addParameter("location", this.location)
-                    .addParameter("animal_id", this.animal_id)
-                    .addParameter("animal_id", this.type)
-                    .addParameter("animal_id", this.ranger)
-                    .addParameter("animal_id", this.timestamp)
-                    .executeUpdate();
+    private void save() throws NullPointerException {
+        try {
+            try (Connection con = DB.sql2o.open()) {
+                String sql = "INSERT INTO sightings (location, animal_id, type, ranger, time) VALUES (:location, :animal_id, :type, :ranger, :timestamp)";
+                con.createQuery(sql)
+                        .addParameter("location", this.location)
+                        .addParameter("animal_id", this.animal_id)
+                        .addParameter("type", this.type)
+                        .addParameter("ranger", this.ranger)
+                        .addParameter("time", this.timestamp)
+                        .executeUpdate();
+            }
+        } catch (NullPointerException e){
+            System.out.println("cannot find values");
         }
     }
+
 
     public static List<Sighting> allSightings(){
         String sql = "SELECT * FROM sightings ";
