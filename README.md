@@ -1,4 +1,4 @@
-# Project Hero Squad
+# Project Wildlife tracker
 ### Description
 This project allows a ranger to record sightings of various animals, including endangered
 species most likely present in a game reserve. Endangered species' details are keenly recorded 
